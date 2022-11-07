@@ -8,7 +8,64 @@
     <link rel="stylesheet" href="./dist/styles.css">
   </head>
   <body>
-      <main></main>
+      <main>
+        <p id="instruction">No instruction for now</p>
+        <section class="exp">
+          <section id="buffer">
+            <table>
+              <tr></tr>
+            </table>
+          </section>
+          <section class="row">
+            <section class="code">
+              <p>Producer</p>
+              <table>
+                <tr><td>generating</td></tr>
+                <tr><td>wait(empty)</td></tr>
+                <tr><td>wait(mutex)</td></tr>
+                <tr><td>producing</td></tr>
+                <tr><td>signal(mutex)</td></tr>
+                <tr><td>signal(full)</td></tr>
+              </table>
+            </section>
+            <section class="semaphores">
+              <p class="sems_head">Semaphores</p>
+              <section class="sems_body">
+                <section class="semaphore">
+                  <p class="name">Full</p>
+                  <p class="value">6</p>
+                </section>
+                <section class="semaphore">
+                  <p class="name">Empty</p>
+                  <p class="value">6</p>
+                </section>
+                <section class="semaphore">
+                  <p class="name">Mutex</p>
+                  <p class="value">6</p>
+                </section>
+              </section>
+            </section>
+            <section class="code">
+              <p>Consumer</p>
+              <table>
+                <tr><td>wait(full)</td></tr>
+                <tr><td>wait(mutex)</td></tr>
+                <tr><td>consuming</td></tr>
+                <tr><td>signal(mutex)</td></tr>
+                <tr><td>signal(empty)</td></tr>
+                <tr><td>using</td></tr>
+              </table>
+            </section>
+          </section>
+        </section>
+        <section class="controls">
+          <button class="button-18" role="button" id="nextA">NextA</button>
+          <button id="produce" class="button-18" role="button">Produce</button>
+          <button class="button-18" role="button" id="advance_clock">Advance Clock</button>
+          <button class="button-18" role="button" id="nextB">NextB</button>
+          <button class="button-18" role="button" id="consume">Consume</button>
+        </section>
+      </main>
     <script src="./dist/main.js"></script>
   </body>
 </html>
