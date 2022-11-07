@@ -2,37 +2,37 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What is the size of the bounded buffer and what is the capacity of each slot in the bounded buffer?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "n,50 units of data",
+        "b": "10,10 units of data",
+        "c": "n,1 unit of data",
+        "d": "all above are incorrect"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "It is n but only stores 1 unit of data",
+        "b": "Incorrect",
+        "c": "Correct",
+        "d": "c is correct"
       },
-      "correctAnswer": "a",
+      "correctAnswer": "c",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "Empty semaphore starts from ___",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "n",
+        "b": "0",
+        "c": "1",
+        "d": "none of the above are correct"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "In the begining all the slots are empty so it is initaly the total number of slots even present in the bounded buffer.",
+        "b": "Incorrect",
+        "c": "Incorrect",
+        "d": "Incorrect"
       },
-      "correctAnswer": "c",
+      "correctAnswer": "a",
       "difficulty": "beginner"
     }
   ]
