@@ -23,6 +23,7 @@ There are two types of semaphores:
 * We have two processes operating on buffer:
   - Producer:produce and store data to the buffer
   - Consumer:consumes or removes data from the buffer
+![Screenshot from 2022-11-08 10-00-17](https://user-images.githubusercontent.com/110168104/200483160-bfa2a632-a617-4077-bc60-6645382c91ef.png)
 
 * We will have to address three issues in regards to the bounded buffer problem:
   - When the producer or consumer is running the other process can not be run
