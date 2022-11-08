@@ -3,14 +3,14 @@
 You will be able to see 4 components:
 * Producer: will show what stage the producer process is currently in
 * Consumer: will show which stage the consumer process is currently in
-Semaphores:
-* Full: used to keep track of filled slots
-* Empty: used to keep track of empty slot
-* Mutex: used to lock the process
-Controls
-* NextP: used to push the stage forward in produser
-* NextC: used to push the stage forward in consumer
-* Advance clock: used to advance the clock cycle
+* Semaphores:
+  * Full: used to keep track of filled slots
+  * Empty: used to keep track of empty slot
+  * Mutex: used to lock the process
+* Controls:
+  * NextP: used to push the stage forward in produser
+  * NextC: used to push the stage forward in consumer
+  * Advance clock: used to advance the clock cycle
 
 
 1. If we receive an instruction saying that a producer wants to fill a slot we will click nextP to push the producer process through the various stages:
