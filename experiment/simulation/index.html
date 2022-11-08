@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPU Scheduling</title>
+    <title>Bounded Buffer Problem</title>
     <link rel="stylesheet" href="./dist/styles.css">
   </head>
   <body>
       <main>
-        <p id="instruction">No instruction for now</p>
+        <p id="instruction">Advance the Clock</p>
         <section class="exp">
           <section id="buffer">
             <table>
@@ -20,12 +20,14 @@
             <section class="code">
               <p>Producer</p>
               <table>
-                <tr><td>generating</td></tr>
-                <tr><td>wait(empty)</td></tr>
-                <tr><td>wait(mutex)</td></tr>
-                <tr><td>producing</td></tr>
-                <tr><td>signal(mutex)</td></tr>
-                <tr><td>signal(full)</td></tr>
+                <tbody id="codeP">
+                  <tr><td>generating</td></tr>
+                  <tr><td>wait(empty)</td></tr>
+                  <tr><td>wait(mutex)</td></tr>
+                  <tr><td>producing</td></tr>
+                  <tr><td>signal(mutex)</td></tr>
+                  <tr><td>signal(full)</td></tr>
+                </tbody>
               </table>
             </section>
             <section class="semaphores">
@@ -33,37 +35,37 @@
               <section class="sems_body">
                 <section class="semaphore">
                   <p class="name">Full</p>
-                  <p class="value">6</p>
+                  <p class="value"id="full">6</p>
                 </section>
                 <section class="semaphore">
                   <p class="name">Empty</p>
-                  <p class="value">6</p>
+                  <p class="value" id="empty">6</p>
                 </section>
                 <section class="semaphore">
                   <p class="name">Mutex</p>
-                  <p class="value">6</p>
+                  <p class="value" id="mutex">6</p>
                 </section>
               </section>
             </section>
             <section class="code">
               <p>Consumer</p>
               <table>
-                <tr><td>wait(full)</td></tr>
-                <tr><td>wait(mutex)</td></tr>
-                <tr><td>consuming</td></tr>
-                <tr><td>signal(mutex)</td></tr>
-                <tr><td>signal(empty)</td></tr>
-                <tr><td>using</td></tr>
+                <tbody id="codeC">
+                  <tr><td>wait(full)</td></tr>
+                  <tr><td>wait(mutex)</td></tr>
+                  <tr><td>consuming</td></tr>
+                  <tr><td>signal(mutex)</td></tr>
+                  <tr><td>signal(empty)</td></tr>
+                  <tr><td>using</td></tr>
+                </tbody>
               </table>
             </section>
           </section>
         </section>
         <section class="controls">
-          <button class="button-18" role="button" id="nextA">NextA</button>
-          <button id="produce" class="button-18" role="button">Produce</button>
+          <button class="button-18" role="button" id="nextP">NextP</button>
           <button class="button-18" role="button" id="advance_clock">Advance Clock</button>
-          <button class="button-18" role="button" id="nextB">NextB</button>
-          <button class="button-18" role="button" id="consume">Consume</button>
+          <button class="button-18" role="button" id="nextC">NextC</button>
         </section>
       </main>
     <script src="./dist/main.js"></script>

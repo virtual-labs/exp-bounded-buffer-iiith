@@ -73,6 +73,9 @@ table {
     align-items: center;
     height: 80%;
 }
+.highlight {
+    font-weight: bold;
+}
 .code p, .semaphores > p {
     font-size: x-large;
 }
@@ -104,6 +107,9 @@ table {
 td {
     padding: 5%;
     text-align: center;
+}
+.data {
+	background-color: burlywood;
 }
 
 button {
