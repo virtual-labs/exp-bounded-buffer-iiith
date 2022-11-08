@@ -29,5 +29,5 @@ Controls
    - signal(empty): this stage will increment the semaphore empty by 1.
    - using:
 
-![Screenshot from 2022-11-08 15-03-32](https://user-images.githubusercontent.com/110168104/200528639-41c54694-3dfd-4257-8296-64c97dd09fc1.png)
+![Screenshot from 2022-11-08 15-03-17](https://user-images.githubusercontent.com/110168104/200529545-7d7f5f74-b489-4108-97b4-252d47766617.png)
 ![Screenshot from 2022-11-08 15-03-44](https://user-images.githubusercontent.com/110168104/200528623-4d3399fe-90d9-416a-bed0-9327d51e0fb7.png)
