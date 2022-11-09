@@ -2,37 +2,54 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "There are two type of atomic functions and they are _____,_______",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "wait(),ready()",
+        "b": "ready(),running()",
+        "c": "wait(),signal()",
+        "d": "ready(),kill()"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "wait() is correct but ready isnt an atomic function",
+        "b": "neither are correct",
+        "c": "correct",
+        "d": "neither are correct"
       },
-      "correctAnswer": "a",
+      "correctAnswer": "c",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "Wait() does _____and signal() does _____ for the semaphore",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Decreament,Kill",
+        "b": "Kill,start",
+        "c": "Decreament,Increment",
+        "d": "None of the above"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect",
+        "b": "Incorrect",
+        "c": "Correct",
+        "d": "Incorrect"
       },
       "correctAnswer": "c",
+      "difficulty": "beginner"
+    } ,
+    {
+      "question": "Select the false issue:",
+      "answers": {
+        "a": "In the bounded buffer both the producer and consumer can not run at the same time. ",
+        "b": "In the bounded buffer both the producer and consumer can run at the same time.",
+        "c": "Producer cannot fill slots if all slots are filled",
+        "d": "Consumer should not be able to empty if all the slots are empty"
+      },
+      "explanations": {
+        "a": "Incorrect",
+        "b": "Correct",
+        "c": "Incorrect",
+        "d": "Incorrect"
+      },
+      "correctAnswer": "b",
       "difficulty": "beginner"
     }
   ]
