@@ -152,6 +152,10 @@ function update_semaphores() {
     document.getElementById("full").textContent = String(full);
     document.getElementById("empty").textContent = String(empty);
     document.getElementById("mutex").textContent = String(mutex);
+
+    document.getElementById("full_ph").textContent = String(full);
+    document.getElementById("empty_ph").textContent = String(empty);
+    document.getElementById("mutex_ph").textContent = String(mutex);
 }
 function update() {
     update_buffer();
