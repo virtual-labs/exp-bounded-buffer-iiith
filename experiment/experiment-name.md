@@ -1,2 +1,2 @@
-## Experiment name
-Bounded Buffer & Producer-Consumer
+## Bounded Buffer & Producer-Consumer
+
