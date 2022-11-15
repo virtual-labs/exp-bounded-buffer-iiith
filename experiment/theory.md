@@ -2,8 +2,8 @@
 They are simply non negative integer variables shared across all threads.They are used to solve the critical section problem and used to achieve process synchronization in the multiprocessing environment.
 
 We have to standard operation:
-* Wait():to test
-* signal():to increment
+* Wait(): to test
+* signal(): to increment
 
 There are two types of semaphores:
 * Binary:
@@ -19,8 +19,8 @@ There are two types of semaphores:
 * It is also called producer consumer problem
 * Let us take a buffer of n size and each slot in it is capable of holding 1 unit of data
 * We have two processes operating on buffer:
-  - Producer:produce and store data to the buffer
-  - Consumer:consumes or removes data from the buffer
+  - Producer: produce and store data to the buffer
+  - Consumer: consumes or removes data from the buffer
 
 ![producerconsumer-theory](https://user-images.githubusercontent.com/110168104/200483299-3f9efba0-490b-4b74-b790-b6035131518c.jpeg)
 
@@ -29,7 +29,7 @@ There are two types of semaphores:
   - The producer can only fill the buffer if there are empty slots
   - The consumer can only empty the buffer if there are any full slots
 * To solve this problem we will make use of 3 semaphores:
-  - m(mutex):a binary semaphore which will be used to acquire and release the lock 
+  - m(mutex): a binary semaphore which will be used to acquire and release the lock 
   - Empty: a counting semaphore used to keep track of the empty slots.starts at n
   - Full: a counting semaphore used to keep track of all the slots that are full.starts at 0
 
