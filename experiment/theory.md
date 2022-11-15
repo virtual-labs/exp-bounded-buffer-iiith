@@ -1,5 +1,3 @@
-### Link your theory in here
-
 ## Semaphores:
 They are simply non negative integer variables shared across all threads.They are used to solve the critical section problem and used to achieve process synchronization in the multiprocessing environment.
 
