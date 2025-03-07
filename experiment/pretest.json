@@ -10,10 +10,10 @@
         "d": "A scheduling problem"
       },
       "explanations": {
-        "a": "Incorrect. The Producer-Consumer problem is not related to file handling but to process synchronization.",
-        "b": "Correct. The Producer-Consumer problem is a classic synchronization problem where multiple producers generate data and place it in a shared buffer, while consumers retrieve and process it.",
-        "c": "Incorrect. The problem does not involve memory fragmentation but process synchronization.",
-        "d": "Incorrect. While scheduling affects processes, the Producer-Consumer problem is primarily a synchronization issue."
+        "a": "Incorrect. File handling is not related to the Producer-Consumer problem.",
+        "b": "Correct. The Producer-Consumer problem is a classic synchronization issue where producers add data to a shared buffer and consumers retrieve it.",
+        "c": "Incorrect. Memory fragmentation is a different problem related to inefficient memory allocation.",
+        "d": "Incorrect. Scheduling problems deal with CPU task execution, not buffer synchronization."
       },
       "correctAnswer": "b",
       "difficulty": "beginner"
@@ -27,10 +27,10 @@
         "d": "Both producer and consumer consume data"
       },
       "explanations": {
-        "a": "Incorrect. The producer generates data, and the consumer uses it, not the other way around.",
-        "b": "Incorrect. Only the producer generates data, while the consumer retrieves it.",
-        "c": "Correct. The producer generates and places data into a shared buffer, while the consumer removes and processes the data.",
-        "d": "Incorrect. Only the consumer retrieves data; the producer generates it."
+        "a": "Incorrect. The producer generates data, not consumes it.",
+        "b": "Incorrect. Only the producer generates data, and the consumer retrieves it.",
+        "c": "Correct. The producer generates and places data in a shared buffer, while the consumer removes and processes it.",
+        "d": "Incorrect. The consumer retrieves data rather than consuming it like the producer."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
@@ -44,10 +44,10 @@
         "d": "Graph"
       },
       "explanations": {
-        "a": "Incorrect. A stack follows LIFO order, which is not suitable for Producer-Consumer implementation.",
-        "b": "Correct. A queue (FIFO structure) is used because the consumer should remove the oldest produced item first.",
-        "c": "Incorrect. Although a linked list can be used to implement a queue, it is not the most direct answer.",
-        "d": "Incorrect. Graphs are not used in this context."
+        "a": "Incorrect. A stack follows LIFO (Last-In-First-Out) order, which is not suitable for the Producer-Consumer problem.",
+        "b": "Correct. A queue (FIFO) is used because consumers retrieve data in the order it was produced.",
+        "c": "Incorrect. Although a linked list can store elements dynamically, it is not the standard data structure used.",
+        "d": "Incorrect. Graphs are used in different scenarios such as shortest path problems, not buffer management."
       },
       "correctAnswer": "b",
       "difficulty": "beginner"
@@ -61,10 +61,10 @@
         "d": "The system will automatically handle synchronization"
       },
       "explanations": {
-        "a": "Incorrect. The buffer may not always be empty; rather, inconsistent access can lead to unpredictable results.",
-        "b": "Correct. Without synchronization, multiple producers and consumers can access the buffer simultaneously, leading to unpredictable behavior and race conditions.",
-        "c": "Incorrect. Lack of synchronization will lead to errors, not efficiency.",
-        "d": "Incorrect. The system does not automatically ensure synchronization; explicit mechanisms are needed."
+        "a": "Incorrect. The buffer may contain data but in an inconsistent state.",
+        "b": "Correct. Without synchronization, race conditions can occur, causing unpredictable behavior and data corruption.",
+        "c": "Incorrect. Lack of synchronization leads to errors, not improved efficiency.",
+        "d": "Incorrect. Systems do not automatically synchronize processes; explicit synchronization mechanisms are required."
       },
       "correctAnswer": "b",
       "difficulty": "intermediate"
@@ -78,10 +78,10 @@
         "d": "All of the above"
       },
       "explanations": {
-        "a": "Partially correct. Deadlock can occur if processes wait indefinitely for resources.",
-        "b": "Partially correct. Race conditions happen when multiple processes access shared resources without proper synchronization.",
-        "c": "Partially correct. Starvation may occur if one process is perpetually blocked from accessing the buffer.",
-        "d": "Correct. The problem can lead to race conditions (simultaneous buffer access), deadlocks (if processes wait indefinitely), and starvation (if one process is blocked indefinitely)."
+        "a": "Partially correct. Deadlocks can occur if processes indefinitely wait for resources.",
+        "b": "Partially correct. Race conditions arise when multiple processes access the buffer simultaneously without control.",
+        "c": "Partially correct. Starvation happens if a process does not get enough resources due to scheduling issues.",
+        "d": "Correct. The Producer-Consumer problem can face all these synchronization issues if not handled properly."
       },
       "correctAnswer": "d",
       "difficulty": "advanced"
@@ -95,13 +95,82 @@
         "d": "Virtual memory"
       },
       "explanations": {
-        "a": "Incorrect. Deadlock detection is useful but not the primary synchronization mechanism for this problem.",
-        "b": "Correct. Semaphores are used to ensure mutual exclusion and proper synchronization between producer and consumer processes.",
-        "c": "Incorrect. Paging is a memory management technique, not a synchronization tool.",
-        "d": "Incorrect. Virtual memory does not handle synchronization between processes."
+        "a": "Incorrect. Deadlock detection is not a direct synchronization mechanism but a recovery technique.",
+        "b": "Correct. Semaphores ensure mutual exclusion and proper synchronization between producer and consumer processes.",
+        "c": "Incorrect. Paging is a memory management technique, not a synchronization method.",
+        "d": "Incorrect. Virtual memory extends physical memory, but it is not related to process synchronization."
       },
       "correctAnswer": "b",
       "difficulty": "intermediate"
+    },
+    {
+      "question": "What happens when the buffer is full, and the producer tries to add more items?",
+      "answers": {
+        "a": "The producer waits until there is space available",
+        "b": "The producer keeps adding items, overwriting old ones",
+        "c": "The system crashes",
+        "d": "The consumer is automatically terminated"
+      },
+      "explanations": {
+        "a": "Correct. In a properly synchronized system, the producer waits until space becomes available.",
+        "b": "Incorrect. Overwriting old items without control leads to data corruption.",
+        "c": "Incorrect. The system does not crash unless there is an unhandled error.",
+        "d": "Incorrect. The consumer does not terminate when the buffer is full."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is the term for a buffer with a fixed size limit?",
+      "answers": {
+        "a": "Unbounded buffer",
+        "b": "Infinite buffer",
+        "c": "Bounded buffer",
+        "d": "Circular buffer"
+      },
+      "explanations": {
+        "a": "Incorrect. An unbounded buffer has no fixed limit.",
+        "b": "Incorrect. An infinite buffer is theoretical and impractical in real-world systems.",
+        "c": "Correct. A bounded buffer has a fixed size and must be managed properly to avoid overflow.",
+        "d": "Incorrect. A circular buffer is a specialized data structure but is not necessarily bounded."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which problem may arise if producers are significantly faster than consumers?",
+      "answers": {
+        "a": "Deadlock",
+        "b": "Starvation of consumers",
+        "c": "Buffer overflow",
+        "d": "Both B and C"
+      },
+      "explanations": {
+        "a": "Incorrect. Deadlock occurs when processes wait indefinitely for resources, not due to speed differences.",
+        "b": "Partially correct. Consumers may not get enough resources if producers are too fast.",
+        "c": "Partially correct. A fast producer can fill the buffer faster than consumers can empty it, causing overflow.",
+        "d": "Correct. Both consumer starvation and buffer overflow can occur in this situation."
+      },
+      "correctAnswer": "d",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which concept helps prevent multiple processes from accessing the critical section simultaneously?",
+      "answers": {
+        "a": "Paging",
+        "b": "Segmentation",
+        "c": "Mutual exclusion",
+        "d": "Thrashing"
+      },
+      "explanations": {
+        "a": "Incorrect. Paging is a memory management technique, not a synchronization method.",
+        "b": "Incorrect. Segmentation is used for memory allocation, not process synchronization.",
+        "c": "Correct. Mutual exclusion ensures that only one process accesses the shared resource at a time, preventing race conditions.",
+        "d": "Incorrect. Thrashing is a performance issue caused by excessive swapping, unrelated to synchronization."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
     }
   ]
 }
+
