@@ -1,41 +1,45 @@
-## Semaphores:
-They are simply non negative integer variables shared across all threads.They are used to solve the critical section problem and used to achieve process synchronization in the multiprocessing environment.
+The Bounded-Buffer Problem also known as the Producer-Consumer Problem is a classic synchronization challenge central to understanding process coordination in operating systems. The problem revolves around two processes: producers, which generate data and place it in a
+shared buffer, and consumers, which retrieve data from the buffer for processing. This shared buffer has limited capacity, requiring synchronization to avoid errors like data corruption or lost updates.
 
-We have to standard operation:
-* Wait(): to test
-* signal(): to increment
+Suppose we have a circular buffer with two pointers **in** and **out** to indicate the next available position for depositing data and the position that contains the next data to be retrieved. See the diagram below. There are two groups of threads, **producers** and **consumers**. Each producer deposits a data items into the **in** position and advances the pointer **in**, and each consumer retrieves the d*ata item in pos*ition **out** and advances the pointer **out**.
 
-There are two types of semaphores:
-* Binary:
-  - values are 0 and 1
-  - known as mutex locks
-  - Used to provide mutual exclusion
-* Counting:
-  - Values range over an unrestricted domain
-  - Used to control resources that have multiple instances
+![Alt text](images/BB1.jpg)
 
-## Bounded buffer:
-* This is a classic problem in synchronization
-* It is also called producer consumer problem
-* Let us take a buffer of n size and each slot in it is capable of holding 1 unit of data
-* We have two processes operating on buffer:
-  - Producer: produce and store data to the buffer
-  - Consumer: consumes or removes data from the buffer
+##Key Concepts
 
-![producerconsumer-theory](https://user-images.githubusercontent.com/110168104/200483299-3f9efba0-490b-4b74-b790-b6035131518c.jpeg)
+* ### Shared Buffer Management:
+  The producer and consumer share a common memory area (the buffer). The size of the buffer determines how many data items can be held simultaneously.
 
-* We will have to address three issues in regards to the bounded buffer problem:
-  - When the producer or consumer is running the other process can not be run
-  - The producer can only fill the buffer if there are empty slots
-  - The consumer can only empty the buffer if there are any full slots
-* To solve this problem we will make use of 3 semaphores:
-  - m(mutex): a binary semaphore which will be used to acquire and release the lock 
-  - Empty: a counting semaphore used to keep track of the empty slots.starts at n
-  - Full: a counting semaphore used to keep track of all the slots that are full.starts at 0
+* ### Synchronization Mechanisms:
+   To prevent race conditions, synchronization primitives like **mutexes** (mutual exclusion locks), **semaphores**, or **condition variables** are used. These mechanisms ensure:
 
+   * Producers do not write to a full buffer.
+   * Consumers do not read from an empty buffer.
+   * Only one process accesses the critical section at a time.
 
-![Screenshot from 2022-11-07 16-48-01](https://user-images.githubusercontent.com/110168104/200297676-6b330238-9b2a-4ed1-ad10-c314a6cbb883.png)
+* ### States and Actions:
+  The system has defined states, such as ***Ready**, **Busy**, or **OK**, and actions like producing (put()) or consuming (get()), which transition the system between states.
 
-![Screenshot from 2022-11-07 16-48-17](https://user-images.githubusercontent.com/110168104/200297793-b34f09a3-b5cb-4367-888f-85b88ad0c98d.png)
+## Analysis
 
+First, because the buffer is shared by all threads, they have to be protected so that race condition will not occur. So, this requires a mutex lock or a binary semaphore. A producer cannot deposit its data if the buffer is full. Similarly, a consumer cannot retrieve any data if the buffer is empty. On the other hand, if the buffer is not full, a producer can deposit its data. After this, the buffer contains data, and, as a result, a consumer should be allowed to retrieve a data item. Similarly, after a consumer retrieves a data item, the buffer is not full, and a producer should be allowed to deposit its data.
 
+Putting these observations together, we know that:
+
+  * A producer must wait until the buffer is not full, deposit its data, and then notify the consumers that the buffer is not empty.
+
+  * A consumer, on the other hand, must wait until the buffer is not empty, retrieve a data item, and then notify the producers that the buffer is not full.
+
+Of course, before a producer or a consumer can have access to the buffer, it must lock the
+buffer. After a producer and consumer finishes using the buffer, it must unlock the buffer.
+Combined these activities together, we have the following diagram:
+
+![Alt text](images/BB2.jpg)
+
+In summary, we need a semaphore to block producers when the buffer is full, a semaphore to
+block consumers when the buffer is empty, and a binary semaphore to guarantee mutex
+exclusion when the buffer is accessed. Note that the first semaphore is signaled (by a
+consumer) when the buffer is not full, and the second is signaled (by a producer) when the
+buffer is not empty.
+
+What are the initial values? The semaphore for blocking producers when buffer is full must have an initial value equal to the buffer size. Why? Because the buffer is empty initially, we can allow that number of producers to pass through. Since each passing through producer causes the counter to be decreased by one, when the buffer is full, the semaphore counter becomes zero and all subsequent producers will be blocked. The initial value of the semaphore for blocking consumers is zero, because initially the buffer is empty and no consumer should be allowed to retrieve. The binary semaphore for locking the buffer should have an initial value 1.
