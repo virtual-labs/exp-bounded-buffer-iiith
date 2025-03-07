@@ -3,7 +3,7 @@ shared buffer, and consumers, which retrieve data from the buffer for processing
 
 Suppose we have a circular buffer with two pointers **in** and **out** to indicate the next available position for depositing data and the position that contains the next data to be retrieved. See the diagram below. There are two groups of threads, **producers** and **consumers**. Each producer deposits a data items into the **in** position and advances the pointer **in**, and each consumer retrieves the d*ata item in pos*ition **out** and advances the pointer **out**.
 
-![Alt text](images/BB1.jpg)
+![bounded-buffer-example](images/BB1.png)
 
 ##Key Concepts
 
@@ -34,7 +34,7 @@ Of course, before a producer or a consumer can have access to the buffer, it mus
 buffer. After a producer and consumer finishes using the buffer, it must unlock the buffer.
 Combined these activities together, we have the following diagram:
 
-![Alt text](images/BB2.jpg)
+![bounded-buffer-analysis](images/BB2.png)
 
 In summary, we need a semaphore to block producers when the buffer is full, a semaphore to
 block consumers when the buffer is empty, and a binary semaphore to guarantee mutex
