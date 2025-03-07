@@ -2,74 +2,106 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "What is the size of the bounded buffer and what is the capacity of each slot in the bounded buffer?",
+      "question": "What is the Producer-Consumer problem in operating systems?",
       "answers": {
-        "a": "n,50 units of data",
-        "b": "10,10 units of data",
-        "c": "n,1 unit of data",
-        "d": "all above are incorrect"
+        "a": "A problem related to file handling",
+        "b": "A synchronization problem where producers and consumers share a common buffer",
+        "c": "A problem related to memory fragmentation",
+        "d": "A scheduling problem"
       },
       "explanations": {
-        "a": "It is n but only stores 1 unit of data",
-        "b": "Incorrect",
-        "c": "Correct",
-        "d": "c is correct"
+        "a": "Incorrect. The Producer-Consumer problem is not related to file handling but to process synchronization.",
+        "b": "Correct. The Producer-Consumer problem is a classic synchronization problem where multiple producers generate data and place it in a shared buffer, while consumers retrieve and process it.",
+        "c": "Incorrect. The problem does not involve memory fragmentation but process synchronization.",
+        "d": "Incorrect. While scheduling affects processes, the Producer-Consumer problem is primarily a synchronization issue."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What are the roles of the producer and the consumer in this problem?",
+      "answers": {
+        "a": "The producer consumes data, and the consumer produces it",
+        "b": "Both producer and consumer produce data",
+        "c": "The producer adds data to the buffer, and the consumer removes data from it",
+        "d": "Both producer and consumer consume data"
+      },
+      "explanations": {
+        "a": "Incorrect. The producer generates data, and the consumer uses it, not the other way around.",
+        "b": "Incorrect. Only the producer generates data, while the consumer retrieves it.",
+        "c": "Correct. The producer generates and places data into a shared buffer, while the consumer removes and processes the data.",
+        "d": "Incorrect. Only the consumer retrieves data; the producer generates it."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
     },
     {
-      "question": "Empty semaphore starts from ___",
+      "question": "What data structure is commonly used to implement the Producer-Consumer problem?",
       "answers": {
-        "a": "n",
-        "b": "0",
-        "c": "1",
-        "d": "none of the above are correct"
+        "a": "Stack",
+        "b": "Queue",
+        "c": "Linked List",
+        "d": "Graph"
       },
       "explanations": {
-        "a": "In the begining all the slots are empty so it is initaly the total number of slots even present in the bounded buffer.",
-        "b": "Incorrect",
-        "c": "Incorrect",
-        "d": "Incorrect"
+        "a": "Incorrect. A stack follows LIFO order, which is not suitable for Producer-Consumer implementation.",
+        "b": "Correct. A queue (FIFO structure) is used because the consumer should remove the oldest produced item first.",
+        "c": "Incorrect. Although a linked list can be used to implement a queue, it is not the most direct answer.",
+        "d": "Incorrect. Graphs are not used in this context."
       },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
-    }
-    ,
-    {
-      "question": "m stands for ___",
-      "answers": {
-        "a": "maximum",
-        "b": "model",
-        "c": "mutex",
-        "d": "none of the above are correct"
-      },
-      "explanations": {
-        "a": "Incorrect",
-        "b": "Incorrect",
-        "c": "Correct",
-        "d": "Incorrect"
-      },
-      "correctAnswer": "c",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "Bounded buffer has ___ processes it/they is/are _____.",
+      "question": "What happens if multiple producers and consumers access a shared buffer without synchronization?",
       "answers": {
-        "a": "2;producer,mutex",
-        "b": "1;producer",
-        "c": "2;producer consumer",
-        "d": "3;mutex,empty,full"
+        "a": "The buffer will always be empty",
+        "b": "Race conditions may occur, leading to data inconsistency",
+        "c": "It will improve efficiency",
+        "d": "The system will automatically handle synchronization"
       },
       "explanations": {
-        "a": "mutex is not a process",
-        "b": "There are two processes",
-        "c": "Correct",
-        "d": "These are semaphores involved not the processes."
+        "a": "Incorrect. The buffer may not always be empty; rather, inconsistent access can lead to unpredictable results.",
+        "b": "Correct. Without synchronization, multiple producers and consumers can access the buffer simultaneously, leading to unpredictable behavior and race conditions.",
+        "c": "Incorrect. Lack of synchronization will lead to errors, not efficiency.",
+        "d": "Incorrect. The system does not automatically ensure synchronization; explicit mechanisms are needed."
       },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is the main synchronization issue in the Producer-Consumer problem?",
+      "answers": {
+        "a": "Deadlock",
+        "b": "Race condition",
+        "c": "Starvation",
+        "d": "All of the above"
+      },
+      "explanations": {
+        "a": "Partially correct. Deadlock can occur if processes wait indefinitely for resources.",
+        "b": "Partially correct. Race conditions happen when multiple processes access shared resources without proper synchronization.",
+        "c": "Partially correct. Starvation may occur if one process is perpetually blocked from accessing the buffer.",
+        "d": "Correct. The problem can lead to race conditions (simultaneous buffer access), deadlocks (if processes wait indefinitely), and starvation (if one process is blocked indefinitely)."
+      },
+      "correctAnswer": "d",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "What synchronization mechanism is commonly used in the Producer-Consumer problem?",
+      "answers": {
+        "a": "Deadlock detection algorithm",
+        "b": "Semaphores",
+        "c": "Paging",
+        "d": "Virtual memory"
+      },
+      "explanations": {
+        "a": "Incorrect. Deadlock detection is useful but not the primary synchronization mechanism for this problem.",
+        "b": "Correct. Semaphores are used to ensure mutual exclusion and proper synchronization between producer and consumer processes.",
+        "c": "Incorrect. Paging is a memory management technique, not a synchronization tool.",
+        "d": "Incorrect. Virtual memory does not handle synchronization between processes."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
     }
-    
   ]
 }
