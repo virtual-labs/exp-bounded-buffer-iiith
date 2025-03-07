@@ -5,8 +5,7 @@ Suppose we have a circular buffer with two pointers **in** and **out** to indica
 
 
 
-|  ||:-: ||  |
-|   || ![bounded-buffer-example](images/BB1.png)|| |
+![bounded-buffer-example](images/BB1.png)
 
 
 
@@ -41,9 +40,7 @@ Combined these activities together, we have the following diagram:
 
 
 
-|                                                                                                  |
-|:-:                                                                                               |
-| ![bounded-buffer-analysis](images/BB2.png)                                                       |
+[bounded-buffer-analysis](images/BB2.png)
 
 
 
