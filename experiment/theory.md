@@ -5,8 +5,8 @@ Suppose we have a circular buffer with two pointers **in** and **out** to indica
 
 
 
-|                                                                                                  |
-|:-:                                                                                               |
+|    |
+|:-: |
 | ![bounded-buffer-example](images/BB1.png)                                                        |
 
 
