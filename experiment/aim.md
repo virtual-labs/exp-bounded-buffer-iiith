@@ -1,2 +1,3 @@
 ### Aim of the experiment
-Simulate the functioning of a **shared bounded buffer** by two processes: a **Consumer** and a **Producer**.
+A pedagogical tool crafted to facilitate **experiential learning** of the **Bounded Buffer Problem**, encouraging students to engage with **synchronization challenges** and analyze outcomes through **controlled experimentation**.
+
