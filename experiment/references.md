@@ -1,10 +1,24 @@
+## Books  
+1. **Operating System Concepts** – Abraham Silberschatz, Peter B. Galvin, and Greg Gagne  
+   [https://www.wiley.com/en-us/Operating+System+Concepts,+10th+Edition-p-9781119456339](https://www.wiley.com/en-us/Operating+System+Concepts,+10th+Edition-p-9781119456339)  
 
-## Go here to see more on bounded buffer:
-* https://www.youtube.com/watch?v=Qx3P2wazwI0
-  * has a basic explaination on what bounded buffer is.  
-* https://www.geeksforgeeks.org/producer-consumer-solution-using-threads-java/
-  * programmed version of the solution
-* https://drive.uqu.edu.sa/_/mskhayat/files/MySubjects/2017SS%20Operating%20Systems/Abraham%20Silberschatz-Operating%20System%20Concepts%20(9th,2012_12).pdf
-  * textbook by Abraham Silberschatz that has detailed explaination for what a semaphore is and what bounded buffer problem and its solution is. 
+2. **Modern Operating Systems** – Andrew S. Tanenbaum, Herbert Bos  
+   [https://www.pearson.com/en-us/subject-catalog/p/modern-operating-systems/P200000003889](https://www.pearson.com/en-us/subject-catalog/p/modern-operating-systems/P200000003889)  
 
+3. **Operating Systems: Internals and Design Principles** – William Stallings  
+   [https://www.pearson.com/us/higher-education/program/Stallings-Operating-Systems-Internals-and-Design-Principles-9th-Edition/PGM161990.html](https://www.pearson.com/us/higher-education/program/Stallings-Operating-Systems-Internals-and-Design-Principles-9th-Edition/PGM161990.html)  
 
+---
+
+## Online References  
+4. **Bounded Buffer Problem - GeeksforGeeks**  
+   [https://www.geeksforgeeks.org/operating-system-bounded-buffer-problem/](https://www.geeksforgeeks.org/operating-system-bounded-buffer-problem/)  
+
+5. **Producer-Consumer Problem - Tutorialspoint**  
+   [https://www.tutorialspoint.com/producer-consumer-problem-in-operating-system](https://www.tutorialspoint.com/producer-consumer-problem-in-operating-system)  
+
+6. **Synchronization in Operating Systems - IBM Developer**  
+   [https://developer.ibm.com/tutorials/l-synchronization/](https://developer.ibm.com/tutorials/l-synchronization/)  
+
+7. **Bounded Buffer & Semaphores - NPTEL Course (IIT Kharagpur)**  
+   [https://nptel.ac.in/courses/106105214](https://nptel.ac.in/courses/106105214)  
