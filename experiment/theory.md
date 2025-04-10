@@ -6,7 +6,7 @@ This problem represents a **real-world scenario** where data is **produced** and
 
 A **virtual lab simulation** of the bounded buffer problem helps students understand the challenges of **concurrent programming** and the importance of **synchronization mechanisms** in ensuring **data consistency** and **system stability**.
 
-# **Example of Bounded Buffer Problem in an Operating System to Illustrate the Problem
+# Example of Bounded Buffer Problem in an Operating System to Illustrate the Problem
 
 Let’s consider a scenario where two processes—a producer and a consumer—are sharing a common memory buffer without any synchronization mechanisms like semaphores or mutexes. This example highlights the problems that can arise due to the lack of proper coordination:
 
