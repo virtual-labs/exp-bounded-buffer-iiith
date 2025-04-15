@@ -1,4 +1,6 @@
 ## Aim of the experiment
 
-A pedagogical tool crafted to facilitate **experiential learning** of the **Bounded Buffer Problem**, encouraging students to engage with **synchronization challenges** and analyze outcomes through **controlled experimentation**.
+To learn how the **Bounded Buffer Problem** works by using an interactive tool that lets us see and solve real-life problems with **process synchronization**, like making sure producers and consumers share a buffer without clashing or losing data.
+
+
 

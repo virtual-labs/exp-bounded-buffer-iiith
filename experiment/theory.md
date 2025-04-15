@@ -39,7 +39,7 @@ Let’s consider a scenario where two processes—a producer and a consumer—ar
 
 ### 3. **Buffer Overflow**
 
-- If the producer keeps adding data when the buffer is full, it could result in a buffer overflow.
+- If the producer keeps adding data when the buffer is filled, it could result in a buffer overflow.
 - **Example:**
   - Buffer size = 5 → Producer tries to write `"HELLO"` + `"WORLD"` → Causes overflow, and some data is lost.
 
@@ -69,7 +69,7 @@ This example illustrates how the lack of synchronization causes unpredictable an
 
 # How We Solve the Bounded Buffer Problem
 
-Suppose we have a **circular buffer** with two pointers:
+Suppose we have a **circular buffer** with two pointers
 
 - **`in`** → Indicates the next available position for **depositing data**.
 - **`out`** → Indicates the position that contains the next data to be **retrieved**.
@@ -95,7 +95,7 @@ To prevent **race conditions**, synchronization primitives like:
 - **Condition Variables**
 
 are used to ensure:
-- Producers do **not write** to a **full buffer**.
+- Producers do **not write** to a **filled buffer**.
 - Consumers do **not read** from an **empty buffer**.
 - Only **one process** accesses the **critical section** at a time.
 
@@ -121,9 +121,9 @@ Since the buffer is **shared by all threads**, it must be **protected** to preve
 This requires the use of a **mutex lock** or a **binary semaphore**.
 
 ### Important Conditions
-- A **producer** cannot deposit its data if the **buffer is full**.
+- A **producer** cannot deposit its data if the **buffer is filled**.
 - A **consumer** cannot retrieve data if the **buffer is empty**.
-- If the buffer is **not full**, a producer can deposit its data.
+- If the buffer is **not filled**, a producer can deposit its data.
 - If the buffer is **not empty**, a consumer can retrieve a data item.
 
 ---
@@ -131,14 +131,14 @@ This requires the use of a **mutex lock** or a **binary semaphore**.
 ### How It Works
 
 1. A **producer** must:
-    - Wait until the buffer is **not full**.
+    - Wait until the buffer is **not filled**.
     - Deposit its data.
     - Notify consumers that the buffer is **not empty**.
 
 2. A **consumer** must:
     - Wait until the buffer is **not empty**.
     - Retrieve a data item.
-    - Notify producers that the buffer is **not full**.
+    - Notify producers that the buffer is **not filled**.
 
 Additionally:
 - **Before** accessing the buffer, the producer/consumer must **lock** the buffer.
@@ -160,18 +160,18 @@ To implement this solution, we need:
 
 | Semaphore | Initial Value | Purpose |
 |:--------:|:-------------:|:-------------------------------------------------------------:|
-| **empty** | Buffer Size  | Blocks **producers** when buffer is **full**. |
-| **full**  | 0            | Blocks **consumers** when buffer is **empty**. |
-| **mutex** | 1            | Guarantees **mutual exclusion** when accessing the buffer. |
+| **empty** | Buffer Size  | Blocks **producers** when buffer is **filled**.                 |
+| **filled**  | 0            | Blocks **consumers** when buffer is **empty**.                |
+| **mutex** | 1            | Guarantees **mutual exclusion** when accessing the buffer.    |
 
 ---
 
 ### Explanation of Initial Values
 - **empty = Buffer Size**  
   → Initially, the buffer is empty, so we can allow that many producers to deposit.  
-  Each deposit **decreases** the count by one. When full, `empty = 0`, blocking producers.
+  Each deposit **decreases** the count by one. When filled, `empty = 0`, blocking producers.
 
-- **full = 0**  
+- **filled = 0**  
   → Buffer is initially empty, so consumers should **not be allowed to retrieve**.
 
 - **mutex = 1**  

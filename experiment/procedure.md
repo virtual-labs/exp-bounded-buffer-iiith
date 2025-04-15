@@ -29,9 +29,9 @@ The simulator is divided into several sections:
 To simulate a producer adding an item to the buffer:
 
 1. Click **Produce (Start Producer Cycle)** to initiate the producer process
-2. Click **wait(empty) - Wait if buffer is full** to check if there's space in the buffer
+2. Click **wait(empty) - Wait if buffer is filled** to check if there's space in the buffer
 
-1. If the buffer is full, the producer will wait (empty semaphore = 0)
+1. If the buffer is filled, the producer will wait (empty semaphore = 0)
 2. If there's space, the producer can proceed (empty semaphore decremented)
 
 
@@ -45,9 +45,9 @@ To simulate a producer adding an item to the buffer:
 
 4. Click **add_item_to_buffer()** to add an item to the buffer at the current position
 5. Click **signal(mutex) - Exit critical section** to release the lock on the buffer
-6. Click **signal(full) - Notify item available** to signal that an item is available
+6. Click **signal(filled) - Notify item available** to signal that an item is available
 
-1. This increments the full semaphore, potentially waking up waiting consumers
+1. This increments the filled semaphore, potentially waking up waiting consumers
 
 
 
@@ -58,10 +58,10 @@ To simulate a producer adding an item to the buffer:
 To simulate a consumer removing an item from the buffer:
 
 1. Click **Consume (Start Consumer Cycle)** to initiate the consumer process
-2. Click **wait(full) - Wait if buffer is empty** to check if there are items in the buffer
+2. Click **wait(filled) - Wait if buffer is empty** to check if there are items in the buffer
 
-1. If the buffer is empty, the consumer will wait (full semaphore = 0)
-2. If there are items, the consumer can proceed (full semaphore decremented)
+1. If the buffer is empty, the consumer will wait (filled semaphore = 0)
+2. If there are items, the consumer can proceed (filled semaphore decremented)
 
 
 
@@ -104,7 +104,7 @@ The operation log shows a chronological record of events with color-coding:
 
 ## Common Scenarios to Try
 
-1. **Buffer Overflow**: Try to produce items until the buffer is full, then try to produce more
+1. **Buffer Overflow**: Try to produce items until the buffer is filled, then try to produce more
 2. **Buffer Underflow**: Try to consume items until the buffer is empty, then try to consume more
 3. **Concurrent Access**: Alternate between producer and consumer steps to see how they coordinate
 4. **Deadlock Avoidance**: Observe how the semaphores prevent deadlock situations
@@ -114,14 +114,14 @@ The operation log shows a chronological record of events with color-coding:
 
 - **"Producer is already in a process"**: Complete the current producer cycle or reset
 - **"Consumer is already in a process"**: Complete the current consumer cycle or reset
-- **"Buffer is full! Producer must wait"**: The producer cannot proceed until a consumer removes an item
+- **"Buffer is filled! Producer must wait"**: The producer cannot proceed until a consumer removes an item
 - **"Buffer is empty! Consumer must wait"**: The consumer cannot proceed until a producer adds an item
 - **"Buffer is already locked!"**: Another process has the mutex; it must release it before this process can proceed
 
 ## Key Observations
 
-- Producer must wait when the buffer is full (empty semaphore = 0)
-- Consumer must wait when the buffer is empty (full semaphore = 0)
+- Producer must wait when the buffer is filled (empty semaphore = 0)
+- Consumer must wait when the buffer is empty (filled semaphore = 0)
 - Only one process can access the buffer at a time (mutex semaphore = 0 when locked)
 - Processes signal each other after completing operations
 - The semaphore values always reflect the current state of the system

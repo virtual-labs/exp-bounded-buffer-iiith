@@ -8,7 +8,7 @@ A **producer** is a process that generates data and places it into a **shared bu
 - A **user uploading** a file to a server.
 - A **logging service** creating log entries.
 
-The producer’s goal is to produce data at its own pace and place it in the buffer. If the **buffer is full**, the producer must wait until space becomes available to avoid **overwriting existing data**.
+The producer’s goal is to produce data at its own pace and place it in the buffer. If the **buffer is filled**, the producer must wait until space becomes available to avoid **overwriting existing data**.
 
 #### 1.2 **Consumers**
 A **consumer** is a process that retrieves data from the buffer and processes it. In real-world scenarios, a consumer could represent:
@@ -19,12 +19,12 @@ A **consumer** is a process that retrieves data from the buffer and processes it
 The consumer’s goal is to consume data at its own pace. If the **buffer is empty**, the consumer must wait until new data becomes available to avoid reading **garbage values**.
 
 #### 1.3 **Bounded Buffer**
-The **buffer** is a **fixed-size memory area** shared between producers and consumers. The buffer imposes two main constraints:
+The **buffer** is a **fixed-size memory area** shared between producers and consumers. The buffer imposes two main constraints
 - **Limited size** – Only a certain number of items can be stored at a time.
 - **Order of access** – Data is consumed in the order it was produced (**FIFO – First In, First Out**).
 
 The problem arises when:
-- The **buffer is full** – The producer cannot add more data until the consumer removes some items.
+- The **buffer is filled** – The producer cannot add more data until the consumer removes some items.
 - The **buffer is empty** – The consumer cannot retrieve data until the producer generates more items.
 
 This creates a challenge where producers and consumers must be properly **synchronized** to prevent conflicts and ensure smooth data flow.
@@ -33,8 +33,8 @@ This creates a challenge where producers and consumers must be properly **synchr
 
 ### 2. What is **Synchronization**?
 
-**Synchronization** refers to the coordination of **concurrent processes** to ensure they access shared resources without conflicts or inconsistencies. In the **bounded buffer problem**, synchronization ensures that:
-- The producer does not overwrite data when the **buffer is full**.
+**Synchronization** refers to the coordination of **concurrent processes** to ensure they access shared resources without conflicts or inconsistencies. In the **bounded buffer problem**, synchronization ensures that
+- The producer does not overwrite data when the **buffer is filled**.
 - The consumer does not read garbage values when the **buffer is empty**.
 - Multiple producers and consumers do not simultaneously access the buffer, preventing **data corruption**.
 
@@ -55,17 +55,17 @@ If both the producer and consumer attempt to access the buffer at the same time,
 Producer adds data to buffer at the same time the consumer reads from it → **Data inconsistency or loss**.
 
 #### 3.2 **Semaphores**
-A **semaphore** is a **signaling mechanism** used to control access to resources. Two types of semaphores are typically used in the bounded buffer problem:
+A **semaphore** is a **signaling mechanism** used to control access to resources. Two types of semaphores are typically used in the bounded buffer problem
 - **Empty Semaphore** – Keeps track of **empty slots** in the buffer.
-- **Full Semaphore** – Keeps track of **filled slots** in the buffer.
+- **filled Semaphore** – Keeps track of **filled slots** in the buffer.
 
 **Problem without Semaphores:**  
-- If a producer adds data to a **full buffer**, it could lead to **buffer overflow**.
+- If a producer adds data to a **filled buffer**, it could lead to **buffer overflow**.
 - If a consumer reads from an **empty buffer**, it could retrieve **garbage data** or cause a crash.
 
 #### 3.3 **Condition Variables**
-**Condition variables** allow a process to **sleep** until a particular condition is met. In the bounded buffer problem:
-- A **producer sleeps** when the buffer is **full**.
+**Condition variables** allow a process to **sleep** until a particular condition is met. In the bounded buffer problem
+- A **producer sleeps** when the buffer is **filled**.
 - A **consumer sleeps** when the buffer is **empty**.
 
 Condition variables ensure that producers and consumers **wake up** only when the necessary conditions are met.
@@ -100,5 +100,5 @@ If **high-priority processes** keep accessing the buffer, low-priority processes
 Consumer reads faster than the producer produces → **Producer starves**.
 
 #### 4.4 **Buffer Overflow and Underflow**
-- If the producer keeps adding data to a **full buffer** → **Overflow**.
+- If the producer keeps adding data to a **filled buffer** → **Overflow**.
 - If the consumer keeps reading from an **empty buffer** → **Underflow**.
