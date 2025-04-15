@@ -1,0 +1,175 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "What does the Producer-Consumer problem demonstrate in operating systems?",
+      "answers": {
+        "a": "CPU scheduling",
+        "b": "Process synchronization",
+        "c": "File handling techniques",
+        "d": "Memory management"
+      },
+      "explanations": {
+        "a": "Incorrect, as CPU scheduling deals with task allocation.",
+        "b": "Correct, as it is a classic example of process synchronization.",
+        "c": "Incorrect, as it is not related to file handling.",
+        "d": "Incorrect, as it does not involve memory management."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "How do semaphores help solve the Producer-Consumer problem?",
+      "answers": {
+        "a": "By preventing mutual exclusion",
+        "b": "By ensuring that a process does not access the buffer incorrectly",
+        "c": "By increasing system complexity",
+        "d": "By allowing unlimited resource access"
+      },
+      "explanations": {
+        "a": "Incorrect, as semaphores enforce mutual exclusion.",
+        "b": "Correct, as they help synchronize buffer access and prevent race conditions.",
+        "c": "Incorrect, as they help with synchronization, not complexity.",
+        "d": "Incorrect, as semaphores restrict resource access."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the role of a 'mutex' in the Producer-Consumer problem?",
+      "answers": {
+        "a": "Allows multiple processes to access a resource simultaneously",
+        "b": "Controls access to the shared buffer to prevent race conditions",
+        "c": "Reduces memory fragmentation",
+        "d": "Increases the number of producers"
+      },
+      "explanations": {
+        "a": "Incorrect, as mutex enforces mutual exclusion.",
+        "b": "Correct, as it prevents race conditions.",
+        "c": "Incorrect, as it does not deal with memory fragmentation.",
+        "d": "Incorrect, as mutex does not influence the number of producers."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What happens when the consumer tries to consume from an empty buffer?",
+      "answers": {
+        "a": "It removes the last available item",
+        "b": "It waits until the producer adds an item",
+        "c": "It continues execution without retrieving any data",
+        "d": "It terminates immediately"
+      },
+      "explanations": {
+        "a": "Incorrect, as there is no item to remove.",
+        "b": "Correct, as the consumer must wait for the producer.",
+        "c": "Incorrect, as it should wait instead of proceeding incorrectly.",
+        "d": "Incorrect, as termination is not an expected behavior."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What problem does a priority-based allocation approach solve in the Producer-Consumer model?",
+      "answers": {
+        "a": "Deadlock",
+        "b": "Starvation",
+        "c": "Paging issues",
+        "d": "Buffer overflow"
+      },
+      "explanations": {
+        "a": "Incorrect, as deadlocks require other handling mechanisms.",
+        "b": "Correct, as priority-based allocation prevents starvation.",
+        "c": "Incorrect, as paging is unrelated to the Producer-Consumer problem.",
+        "d": "Incorrect, as buffer overflow is managed differently."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is a potential drawback of using busy waiting in the Producer-Consumer problem?",
+      "answers": {
+        "a": "Inefficient CPU usage",
+        "b": "Increased memory consumption",
+        "c": "Higher disk I/O",
+        "d": "Enhanced performance"
+      },
+      "explanations": {
+        "a": "Correct, as busy waiting keeps the CPU occupied unnecessarily.",
+        "b": "Incorrect, as busy waiting mainly affects CPU usage, not memory.",
+        "c": "Incorrect, as it does not significantly impact disk I/O.",
+        "d": "Incorrect, as busy waiting reduces efficiency."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "How does the Producer-Consumer problem apply to real-world systems?",
+      "answers": {
+        "a": "It models process execution in single-threaded environments",
+        "b": "It represents task scheduling in real-time operating systems",
+        "c": "It demonstrates static resource allocation",
+        "d": "It is not used in practical applications"
+      },
+      "explanations": {
+        "a": "Incorrect, as it typically involves multiple processes or threads.",
+        "b": "Correct, as many real-world systems use this model.",
+        "c": "Incorrect, as it involves dynamic resource allocation.",
+        "d": "Incorrect, as it has practical applications in computing."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What condition must be met for a system to be in a safe state in the Producer-Consumer problem?",
+      "answers": {
+        "a": "The buffer must always be full",
+        "b": "The buffer must always be empty",
+        "c": "There must be no deadlocks or race conditions",
+        "d": "The system must allow unlimited producers and consumers"
+      },
+      "explanations": {
+        "a": "Incorrect, as a full buffer is not required for a safe state.",
+        "b": "Incorrect, as an empty buffer does not ensure a safe state.",
+        "c": "Correct, as a safe state means no deadlocks or race conditions.",
+        "d": "Incorrect, as resource limits must be managed."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What happens when both the producer and the consumer wait indefinitely?",
+      "answers": {
+        "a": "Starvation",
+        "b": "Deadlock",
+        "c": "Buffer overflow",
+        "d": "None of the above"
+      },
+      "explanations": {
+        "a": "Incorrect, as starvation refers to indefinite blocking due to priority.",
+        "b": "Correct, as deadlock occurs when both processes wait indefinitely.",
+        "c": "Incorrect, as buffer overflow is a different issue.",
+        "d": "Incorrect, as deadlock is the correct answer."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which synchronization method is more efficient than semaphores in modern operating systems?",
+      "answers": {
+        "a": "Spinlocks",
+        "b": "Monitors",
+        "c": "Paging",
+        "d": "Virtual memory"
+      },
+      "explanations": {
+        "a": "Incorrect, as spinlocks are used for short-term waiting.",
+        "b": "Correct, as monitors encapsulate synchronization mechanisms efficiently.",
+        "c": "Incorrect, as paging deals with memory management, not synchronization.",
+        "d": "Incorrect, as virtual memory is unrelated to synchronization."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    }
+  ]
+  }
